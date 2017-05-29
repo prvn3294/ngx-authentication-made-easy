@@ -1,0 +1,29 @@
+
+    <form class="form-signin" [formGroup]="myForm" (ngSubmit)="signup(myForm.value , myForm.valid)"   >
+        <h2 class="form-signin-heading">Please sign up</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" formControlName="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        
+        <small [hidden]="myForm.controls.email.valid || (myForm.controls.email.pristine && !submitted)">
+              Email is required.
+        </small>
+
+        <br>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" formControlName="password" id="inputPassword" class="form-control" placeholder="Password" required>
+       
+        <small [hidden]="myForm.controls.password.valid || (myForm.controls.password.pristine && !submitted)">
+              Password is required.
+        </small>
+
+        <br>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+        <br>
+
+        
+    </form>
+
+     Already have an account <a routerLink = "/signin" >Click Here</a>
+
+

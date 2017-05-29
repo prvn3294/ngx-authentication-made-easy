@@ -1,0 +1,31 @@
+
+    <form class="form-signin" [formGroup]="myForm" (ngSubmit)="signin(myForm.value , myForm.valid)"   >
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" formControlName="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        
+        <small [hidden]="myForm.controls.email.valid || (myForm.controls.email.pristine && !submitted)">
+              Email is required.
+        </small>
+
+        <br>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" formControlName="password" id="inputPassword" class="form-control" placeholder="Password" required>
+       
+        <small [hidden]="myForm.controls.password.valid || (myForm.controls.password.pristine && !submitted)">
+              Password is required.
+        </small>
+
+        <br>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <br>
+    </form>
+
+    Don't have an account <a routerLink = "/signup" >Click Here</a>
+
+<br>
+
+    <div class="alert alert-success" role="alert" *ngIf="loginfailed" >
+      <strong> {{ failmsg }} </strong>
+    </div>
